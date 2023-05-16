@@ -1,0 +1,11 @@
+{
+  "extends": "@ezy/tsconfig/tsconfig.electron.json",
+  "compilerOptions": {
+    "outDir": "./dist/trpc",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/api/*.ts"],
+  "exclude": []
+}

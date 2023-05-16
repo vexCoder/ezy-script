@@ -1,0 +1,13 @@
+{
+  "extends": "@ezy/tsconfig/tsconfig.node.json",
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "isolatedModules": false
+  },
+  "include": ["scripts/**/*.ts"],
+  "exclude": []
+}

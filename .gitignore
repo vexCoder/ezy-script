@@ -1,0 +1,8 @@
+node_modules
+build
+!apps/window/build
+dist
+temp
+.next
+.turbo
+generated

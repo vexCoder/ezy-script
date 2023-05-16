@@ -1,0 +1,17 @@
+{
+  "pipeline": {
+    "build": {},
+    "dev": {},
+    "lint": {},
+    "prod": {},
+
+    "@ezy/view#dev": {},
+    "@ezy/window#dev": {},
+
+    "@ezy/database#generate": {},
+    "@ezy/database#watch": {
+      "cache": false,
+      "dependsOn": ["@ezy/database#generate"]
+    }
+  }
+}

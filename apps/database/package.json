@@ -1,0 +1,53 @@
+{
+  "name": "@ezy/database",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "dist/generated/index.js",
+  "types": "dist/generated/index.d.ts",
+  "exports": {
+    ".": "./dist/generated/index.js",
+    "./client": "./dist/generated/index-browser.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["dist/generated/index.d.ts"],
+      "client": ["dist/generated/index.d.ts"]
+    }
+  },
+  "files": [
+    "dist/generated"
+  ],
+  "scripts": {
+    "dev": "yarn generate --watch",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "seed": "ts-node scripts/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@prisma/client": "^4.10.1",
+    "@types/fs-extra": "^11.0.1",
+    "argon2": "^0.30.3",
+    "dayjs": "^1.11.7",
+    "fs-extra": "^11.1.0",
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
+    "p-map": "^4.0.0",
+    "remeda": "^1.6.2"
+  },
+  "devDependencies": {
+    "@ezy/tsconfig": "*",
+    "eslint-config-ezy": "*",
+    "@types/fs-extra": "^11.0.1",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.14.0",
+    "prisma": "^4.10.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "gitHead": "63dbb270f1ae625566479126f444166084c1c93c"
+}

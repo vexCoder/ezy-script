@@ -1,0 +1,14 @@
+{
+  "extends": "ezy/electron",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "apps/window"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-plusplus": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "class-methods-use-this": "off"
+  }
+}

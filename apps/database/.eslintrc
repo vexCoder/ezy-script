@@ -1,0 +1,16 @@
+{
+  "extends": "ezy/node",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "libs/prisma"
+  },
+  "ignorePatterns": ["**/*.d.*", "build.ts"],
+  "rules": {
+    "prettier/prettier": {
+      "endOfLine": "auto"
+    },
+    "no-console": "off",
+    "no-plusplus": "off",
+    "import/no-relative-packages": "off"
+  }
+}

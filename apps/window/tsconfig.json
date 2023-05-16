@@ -1,0 +1,12 @@
+{
+  "extends": "@ezy/tsconfig/tsconfig.electron.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "build/**/*.ts", "preload/**/*.ts"],
+  "exclude": []
+}

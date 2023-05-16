@@ -1,0 +1,40 @@
+{
+  "name": "ezy-script",
+  "version": "0.0.0",
+  "private": true,
+  "description": "<%= description %>",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "db": "yarn workspace @ezy/database",
+    "common": "yarn workspace @ezy/common",
+    "sb": "yarn common build && yarn && concurrently --names \"Storybook,Commons\" -c \"blue.bold,magenta.bold,green\" --kill-others \"yarn sb:dev\" \"yarn common dev\"",
+    "sb:dev": "start-storybook -p 6006 -c ./apps/view/.storybook",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "<%= author %> <<%= email %>>",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "eslint": "^8.21.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.4",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  },
+  "workspaces": [
+    "apps/*",
+    "libs/*",
+    "configs/*"
+  ],
+  "tk": {
+    "templates": [
+      "../templates"
+    ]
+  },
+  "dependencies": {}
+}
