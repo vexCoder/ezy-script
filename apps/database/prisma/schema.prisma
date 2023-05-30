@@ -11,6 +11,13 @@ datasource db {
   url      = "file:./../../../temp/dev.db"
 }
 
+model Settings {
+  id            Int         @id @default(autoincrement())
+  primaryScreen BigInt?        
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt @default(now())
+}
+
 model Script {
   id            Int         @id @default(autoincrement())
   name          String      @unique

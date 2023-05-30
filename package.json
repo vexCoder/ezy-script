@@ -12,7 +12,8 @@
     "common": "yarn workspace @ezy/common",
     "sb": "yarn common build && yarn && concurrently --names \"Storybook,Commons\" -c \"blue.bold,magenta.bold,green\" --kill-others \"yarn sb:dev\" \"yarn common dev\"",
     "sb:dev": "start-storybook -p 6006 -c ./apps/view/.storybook",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "clean": "npx rimraf **/node_modules"
   },
   "keywords": [],
   "author": "<%= author %> <<%= email %>>",

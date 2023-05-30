@@ -41,6 +41,9 @@ const build = async () => {
     "generated"
   );
 
+  const pathToPrisma = join(pathToGenerated, "schema.prisma");
+
+  await fs.copyFile(pathToPrisma, join(pathToBuild, "schema.prisma"));
   const plugins: esbuild.Plugin[] = [];
   if (isDev) {
     plugins.push(
@@ -48,13 +51,14 @@ const build = async () => {
         dir: pathToBuild,
         dev: true,
         async onRestart() {
-          const pathToPrisma = join(pathToGenerated, "schema.prisma");
           console.log("Copying Prisma schema to dist", pathToPrisma);
           await fs.copyFile(pathToPrisma, join(pathToBuild, "schema.prisma"));
         },
       })
     );
   }
+
+  console.log(pathToBuild);
 
   await makeEsbuild(["src/index.ts", "preload/preload.ts"], pathToBuild, {
     watch: isDev,

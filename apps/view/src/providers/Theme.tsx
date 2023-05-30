@@ -3,6 +3,7 @@ import {
   MantineThemeOverride,
   Tuple,
   DefaultMantineColor,
+  MantineTheme,
 } from "@mantine/core";
 import { makeCSSUtils } from "../utils/theme.helper";
 
@@ -68,16 +69,51 @@ const overrideTheme: MantineThemeOverride = {
   other: {
     cssUtils: makeCSSUtils(),
   },
-  globalStyles: (theme) => ({
+  globalStyles: () => ({
     "html, body": {
       padding: 0,
       margin: 0,
-      backgroundColor: theme.colors.primary[5],
+      // backgroundColor: theme.colors.primary[5],
+
+      backgroundColor: "transparent",
+      overflow: "hidden",
+      height: "100%",
+      // background: "red",
+    },
+
+    "#root": {
+      padding: 25,
+      boxSizing: "border-box",
+      // center content
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      width: "100%",
+      height: "100%",
     },
 
     // scrollbars css classnames
     "::-webkit-scrollbar": {},
   }),
+  fontFamily: "RobotoMono, monospace",
+  components: {
+    Text: {
+      defaultProps: {
+        ff: "RobotoMono, monospace",
+        color: "primary.1",
+      },
+    },
+    Kbd: {
+      defaultProps: {
+        ff: "RobotoMono, monospace",
+        sx: (theme: MantineTheme) => ({
+          backgroundColor: theme.colors.primary[4],
+          borderColor: theme.colors.primary[3],
+          color: theme.colors.primary[1],
+        }),
+      },
+    },
+  },
 };
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {

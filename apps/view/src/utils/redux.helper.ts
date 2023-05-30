@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import toastReducer from "@slices/toast";
+import actionReducer from "@slices/editor";
 
 export const store = configureStore({
   reducer: {
-    toast: toastReducer,
+    editor: actionReducer,
   },
 });
 

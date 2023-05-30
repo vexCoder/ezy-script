@@ -44,6 +44,10 @@ export const Code = ({ value = "", onSave, libs = [] }: CodeProps) => {
         token: "number",
         foreground: "#ce9178",
       },
+      {
+        token: "comment",
+        foreground: "#6A9955",
+      },
     ],
   };
 

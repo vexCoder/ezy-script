@@ -3,10 +3,14 @@ import { PrismaClient } from "@ezy/database/dist/generated";
 import { inferAsyncReturnType, initTRPC } from "@trpc/server";
 import { BrowserWindow } from "electron";
 import { CreateContextOptions } from "electron-trpc/main";
+import { EventEmitter } from "events";
+import { Screen } from "./utils/screen";
 
-interface ContextBuilderParams {
+export interface ContextBuilderParams {
   client: PrismaClient;
   win: BrowserWindow;
+  emitter: EventEmitter;
+  screen: Screen;
 }
 
 export const createContext =
@@ -15,11 +19,15 @@ export const createContext =
     event,
     client: opts.client,
     win: opts.win,
+    emitter: opts.emitter,
+    screen: opts.screen,
   }); // no context
 
 export type Context = inferAsyncReturnType<ReturnType<typeof createContext>> & {
   client: PrismaClient;
   win: BrowserWindow;
+  emitter: EventEmitter;
+  screen: Screen;
 };
 
 export const t = initTRPC.context<Context>().create();

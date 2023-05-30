@@ -24,3 +24,25 @@ export const getDirSize = async (dirPath: string) => {
 
   return size;
 };
+
+export function extractMatches(regex: RegExp, value: string): RegExpExecArray[];
+export function extractMatches<T>(
+  regex: RegExp,
+  value: string,
+  mapper: (ext: RegExpExecArray) => T
+): T[];
+export function extractMatches<T>(
+  regex: RegExp,
+  value: string,
+  mapper?: (ext: RegExpExecArray) => T
+): (T | RegExpExecArray)[] {
+  const matches: RegExpExecArray[] = [];
+
+  let extracted: RegExpExecArray | undefined | null;
+  do {
+    extracted = regex.exec(value);
+    if (extracted) matches.push(extracted);
+  } while (extracted);
+
+  return mapper ? matches.map(mapper) : matches;
+}

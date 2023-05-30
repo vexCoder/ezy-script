@@ -2,6 +2,7 @@
 import { defineConfig, loadEnv, ConfigEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import inspect from 'vite-plugin-inspect'
+import Unfonts from 'unplugin-fonts/vite'
 import path from 'path';
 
 export const aliases = {
@@ -31,6 +32,20 @@ export default ({ mode }: ConfigEnv) => {
   const plugins = [];
   
   plugins.push(...react());
+
+  plugins.push(Unfonts({
+    custom: {
+      families: [{
+        name: 'RobotoMono',
+        local: 'RobotoMono',
+        src: './public/*.ttf',
+      }],
+      display: 'auto',
+      preload: true,
+      prefetch: false,
+      injectTo: 'head-prepend',
+    }
+  }));
   
   if(!isProd) plugins.push(inspect())
 
@@ -49,6 +64,7 @@ export default ({ mode }: ConfigEnv) => {
     build: {
       chunkSizeWarningLimit: 2500,
     },
+    assetsInclude: ['**/*.wasm', '**/*.plist'],
     optimizeDeps: {
       include: [],
     },

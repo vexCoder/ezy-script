@@ -19,6 +19,8 @@ const plugin = (options?: ElectronPlugin) => {
     ? join(dir, "index.js")
     : join(process.cwd(), "dist", "index.js");
 
+  console.log("mainProcess", electronPath);
+
   const run = (restart?: boolean) => {
     const args = ["--no-warnings", "--trace-warnings", mainProcess];
     if (restart) args.push("--restart");

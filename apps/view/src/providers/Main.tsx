@@ -7,6 +7,7 @@ import { store } from "@utils/redux.helper";
 import { Notifications } from "@mantine/notifications";
 import { TRPCProvider } from "./TRPC";
 import { ThemeProvider } from "./Theme";
+import { ContainerProvider } from "./Container";
 
 export type MainProviderProps = {
   children: ReactChildren;
@@ -18,10 +19,12 @@ export const MainProvider = ({ children }: MainProviderProps) => {
       <Provider store={store}>
         <TRPCProvider>
           <ThemeProvider>
-            <ErrorBoundary FallbackComponent={ErrorFallback}>
-              <Notifications />
-              <HashRouter>{children}</HashRouter>
-            </ErrorBoundary>
+            <ContainerProvider>
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
+                <Notifications />
+                <HashRouter>{children}</HashRouter>
+              </ErrorBoundary>
+            </ContainerProvider>
           </ThemeProvider>
         </TRPCProvider>
       </Provider>
